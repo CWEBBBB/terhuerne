@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="page {{ page.class ? page.class ~ "-pg" : "" }}" lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="ArtBro">
+		<title>{{ page.title.text ?? 'Страница' }}</title>
+		<!-- uikit css -->
+		<link rel="stylesheet" href="assets/vendors/uikit/uikit.min.css">
+		<!-- swiper css -->
+		<link rel="stylesheet" href="assets/vendors/swiper/swiper-bundle.min.css">
+		<!-- main css -->
+		<link rel="stylesheet" href="assets/style/css/style.css">
+		{# ------ SCRIPTS ----- #}
+		{% block scripts %}
+			<!-- jquery -->
+			<script src="assets/vendors/jquery/jquery.min.js" defer></script>
+			<!-- jquery event move -->
+			<script src="assets/vendors/jquery/jquery.event.move.js" defer></script>
+			<!-- uikit js -->
+			<script src="assets/vendors/uikit/uikit-icons.min.js" defer></script>
+			<script src="assets/vendors/uikit/uikit.min.js" defer></script>
+			<!-- inputMask -->
+			<script src="assets/vendors/inputMask/inputMask.min.js" defer></script>
+			<!-- swiper bundle -->
+			<script src="assets/vendors/swiper/swiper-bundle.min.js" defer></script>
+			<!-- main -->
+			<script src="assets/js/main.js" defer></script>
+		{% endblock %}
+	</head>
+	<body>
+		<div class="site {{ site.class|default("") }}">
+			{# ------ HEADER ----- #}
+			{% block header %}
+				{% include "&/header.twig" %}
+			{% endblock %}
+			
+			{# ------ BREADCRUMBS ----- #}
+			{% block breadcrumbs %}{% endblock %}
+
+			<!-- CONTENT WRAP -->
+			<main class="site__content {{ site_content.class|default("") }}"
+				{% include "@/_default.twig" with {
+					_default: {
+						attrs: site_content.attrs
+					}
+				} %}>
+				{% block content %}{% endblock %}
+			</main>
+
+			<div class="mobile-navbar">
+				<ul class="mobile-navbar__list">
+					<li class="mobile-navbar__item">
+						<a class="mobile-navbar__btn btn btn--icon btn--bg_transparent" href="/">
+							<i class="btn__icon">
+								<svg height="22" aria-hidden="true">
+									<use xlink:href="assets/img/icons/ui/sprite.svg#home"></use>
+								</svg>
+							</i>
+						</a>
+					</li>
+					<li class="mobile-navbar__item">
+						<button class="mobile-navbar__btn btn btn--icon btn--bg_transparent" data-search-toggle aria-label="Показать поиск">
+							<i class="btn__icon icon">
+								<svg height="24" width="24" aria-hidden="true">
+									<use xlink:href="assets/img/icons/ui/sprite.svg#loupe"></use>
+								</svg>
+							</i>
+						</button>
+					</li>
+					<li class="mobile-navbar__item">
+						<button class="mobile-navbar__btn hamburger js-toggle-burger" type="button" aria-label="Открыть мобильное меню">
+							<div class="hamburger__inner">
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+						</button>
+					</li>
+					<li class="mobile-navbar__item">
+						<a class="mobile-navbar__btn btn btn--icon btn--bg_transparent" href="#" target="_blank">
+							<i class="btn__icon icon">
+								<svg height="24" width="24" aria-hidden="true">
+									<use xlink:href="assets/img/icons/ui/sprite.svg#instagram"></use>
+								</svg>
+							</i>
+						</a>
+					</li>
+				</ul>
+			</div>
+			{# ------ FOOTTER ----- #}
+			{% block footer %}
+				{% include "&/footer.twig" %}
+			{% endblock %}
+			{# ------ COMMON ----- #}
+			{% block common %}{% endblock %}
+		</div>
+		<!-- btn scroll top -->
+		<button class="page__btn-top btn btn--icon btn--bg js-top" uk-scroll aria-label="Прокрутить страницу к верху">
+			<i class="btn__icon icon icon--orientation_top icon--size_20">
+				<svg height="20" aria-hidden="true">
+					<use xlink:href="assets/img/icons/ui/sprite.svg#chevron"></use>
+				</svg>
+			</i>
+		</button>
+	</body>
+</html>

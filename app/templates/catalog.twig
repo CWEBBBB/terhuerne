@@ -1,0 +1,527 @@
+{% extends "layouts/page.twig" %}
+
+{% block breadcrumbs %}
+	{% include "@/breadcrumbs.twig" with {
+		breadcrumbs: {
+			items: [{
+				href: "#",
+				text: "Главная"
+			}, {
+				href: "#",
+				text: "Каталог"
+			}, {
+				href: "#",
+				text: "Hywood"
+			}, {
+				href: "#",
+				text: "Floor Finder"
+			}]
+		}
+	} %}
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<h1 class="page__title">Каталог</h1>
+		<!-- tag links -->
+		<div class="tag-link-list mb-52 mb-lg-40 mb-sm-32">
+			<a class="btn btn--border_2 btn--size_xl" href="#">Название коллекции</a>
+			<a class="btn btn--border_2 btn--size_xl" href="#">Название коллекции</a>
+			<a class="btn btn--border_2 btn--size_xl" href="#">Название коллекции</a>
+		</div>
+		<div class="boxes">
+			<div class="boxes__side">
+				<div class="filters-wrap js-modal-filters">
+					<!-- filter form -->
+					<form class="filters" action="#">
+						<!-- head filters -->
+						<div class="filters__header">
+							<div class="filters__title js-toggle-filters">
+								<span class="filters__title-icon">
+									<svg height="20" width="20" aria-hidden="true">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#filter"></use>
+									</svg>
+								</span>
+								<span>Фильтр</span>
+							</div>
+							<button class="filters__close uk-close-large js-toggle-filters" uk-close type="button">
+							</button>
+						</div>
+						<!-- body filter -->
+						<div class="filters__body">
+							<div class="filters__fieldset-group" data-visible-items="6">
+								<!-- ЦЕНЫ В МАКЕТЕ НЕТУ, ВСТАВИЛ НА ВСЯКИЙ СЛУЧАЙ -->
+								<fieldset class="filters__fieldset">
+									<legend>Цена</legend>
+									<div class="filters__fieldset-title">
+										<span>Цена</span>
+										<i class="icon icon--direction_top">
+											<svg height="10" width="10" aria-hidden="true">
+												<use xlink:href="assets/img/icons/ui/sprite.svg#chevron"></use>
+											</svg>
+										</i>
+									</div>
+									<div class="filters__fieldset-box">
+										<div class="slider-from-to">
+											<div class="slider-from-to__inputs">
+												<label class="slider-from-to__label">
+													<div class="slider-from-to__text">от</div>
+													<input class="slider-from-to__input" type="number" placeholder="0">
+												</label>
+												<label class="slider-from-to__label">
+													<div class="slider-from-to__text">до</div>
+													<input class="slider-from-to__input" type="number" placeholder="1000">
+												</label>
+											</div>
+											<div class="slider-from-to__slider"></div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset class="filters__fieldset">
+									<legend>Дизайн</legend>
+									<div class="filters__fieldset-title">
+										<span>Дизайн</span>
+										<span>
+											<svg height="10" width="10" aria-hidden="true">
+												<use xlink:href="assets/img/icons/ui/sprite.svg#chevron"></use>
+											</svg>
+										</span>
+									</div>
+									<div class="filters__fieldset-box">
+										<div class="filters__checkboxes">
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset class="filters__fieldset">
+									<legend>Цвет</legend>
+									<div class="filters__fieldset-title">
+										<span>Цвет</span>
+										<span>
+											<svg height="10" width="10" aria-hidden="true">
+												<use xlink:href="assets/img/icons/ui/sprite.svg#chevron"></use>
+											</svg>
+										</span>
+									</div>
+									<div class="filters__fieldset-box">
+										<div class="palette-prod">
+											<div class="palette-prod__list">
+												<label class="palette-prod__item" aria-label="Красный, экокожа">
+													<input type="checkbox" value="красный==#546675" name="options" checked="checked">
+													<span class="palette-prod__item-marker" style="background: #666666;"></span>
+												</label>
+												<label class="palette-prod__item" aria-label="Бордовый, экокожа">
+													<input type="checkbox" value="красный==#546675" name="options">
+													<span class="palette-prod__item-marker" style="background: #3F3F3F;"></span>
+												</label>
+												<label class="palette-prod__item" aria-label="Черный, экокожа">
+													<input type="checkbox" value="красный==#546675" name="options">
+													<span class="palette-prod__item-marker" style="background: #6C5B5A;"></span>
+												</label>
+												<label class="palette-prod__item" aria-label="Голубой, экокожа">
+													<input type="checkbox" value="красный==#546675" name="options">
+													<span class="palette-prod__item-marker" style="background: #C5C5C5;"></span>
+												</label>
+												<label class="palette-prod__item" aria-label="Серый, экокожа">
+													<input type="checkbox" value="красный==#546675" name="options">
+													<span class="palette-prod__item-marker" style="background: #fff;"></span>
+												</label>
+												<label class="palette-prod__item" aria-label="Серый, экокожа">
+													<input type="checkbox" value="красный==#546675" name="options">
+													<span class="palette-prod__item-marker" style="background: tomato;"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset class="filters__fieldset">
+									<legend>Особенности древесины</legend>
+									<div class="filters__fieldset-title">
+										<span>Особенности древесины</span>
+										<span>
+											<svg height="10" width="10" aria-hidden="true">
+												<use xlink:href="assets/img/icons/ui/sprite.svg#chevron"></use>
+											</svg>
+										</span>
+									</div>
+									<div class="filters__fieldset-box">
+										<div class="filters__checkboxes">
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset class="filters__fieldset">
+									<legend>Groove</legend>
+									<div class="filters__fieldset-title">
+										<span>Groove</span>
+										<span>
+											<svg height="10" width="10" aria-hidden="true">
+												<use xlink:href="assets/img/icons/ui/sprite.svg#chevron"></use>
+											</svg>
+										</span>
+									</div>
+									<div class="filters__fieldset-box">
+										<div class="filters__checkboxes">
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset class="filters__fieldset">
+									<legend>Collection</legend>
+									<div class="filters__fieldset-title">
+										<span>Collection</span>
+										<span>
+											<svg height="10" width="10" aria-hidden="true">
+												<use xlink:href="assets/img/icons/ui/sprite.svg#chevron"></use>
+											</svg>
+										</span>
+									</div>
+									<div class="filters__fieldset-box">
+										<div class="filters__checkboxes">
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset class="filters__fieldset">
+									<legend>Surface</legend>
+									<div class="filters__fieldset-title">
+										<span>Surface</span>
+										<span>
+											<svg height="10" width="10" aria-hidden="true">
+												<use xlink:href="assets/img/icons/ui/sprite.svg#chevron"></use>
+											</svg>
+										</span>
+									</div>
+									<div class="filters__fieldset-box">
+										<div class="filters__checkboxes">
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset class="filters__fieldset">
+									<legend>Test</legend>
+									<div class="filters__fieldset-title">
+										<span>Test</span>
+										<span>
+											<svg height="10" width="10" aria-hidden="true">
+												<use xlink:href="assets/img/icons/ui/sprite.svg#chevron"></use>
+											</svg>
+										</span>
+									</div>
+									<div class="filters__fieldset-box">
+										<div class="filters__checkboxes">
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+											<label class="b-checkbox">
+												<input id="privacy-checkbox" type="checkbox" name="privacy">
+												<span class="b-checkbox__custom"></span>
+												<span class="b-checkbox__content">Параметр 1</span>
+											</label>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+							<div class="filters__body-btns btns btns--filling_full">
+								<div class="btns__list">
+									<button class="btn btn--border btn--size_s btn--inert js-toggler-visible" type="button" aria-label="Показать дополнительные поля">
+										<span class="btn__value-active">Стандартные поля</span>
+										<span class="btn__value">Дополнительные поля</span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<!-- НЕТУ В МАКЕТЕ controls filters 
+						<div class="filters__controls">
+							<div class="filters__counter">
+								показать <span class="filters__counter-val">12</span> товаров
+							</div>
+							<button class="filters__submit btn btn--bg js-close-filters" type="submit" aria-label="Показать">
+								Показать
+							</button>
+						</div>
+						-->
+					</form>
+				</div>
+			</div>
+			<div class="boxes__main mt-0">
+				<!-- products -->
+				<div class="products">
+					<!-- controls products -->
+					<div class="products__controls d-flex align-items-center">
+						<button class="d-none d-md-inline-flex justify-content-start text-start btn btn--border btn--size_s js-toggle-filters" type="button" aria-label="Открыть фильтры">
+							<i class="btn__icon">
+								<svg height="20" aria-hidden="true">
+									<use xlink:href="assets/img/icons/ui/sprite.svg#filter"></use>
+								</svg>
+								
+							</i>
+							<span class="btn__value">фильтр</span>
+						</button>
+						<div class="products__count">49 товаров</div>
+						<!-- sort -->
+						<div class="sort">
+							<div class="sort__head j-sort-toggle">
+								<span class="sort__val">По популярности</span>
+								<span class="sort__head-arr icon icon--orientation_right">
+									<svg height="12" width="12" aria-hidden="true">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#chevron"></use>
+									</svg>
+									
+								</span>
+							</div>
+							<div class="sort__dropdown">
+								<a class="sort__item active">По популярности</a>
+								<a class="sort__item">По рейтингу</a>
+								<a class="sort__item">По цене max</a>
+								<a class="sort__item">По цене min</a>
+							</div>
+						</div>
+					</div>
+					<!-- list products -->
+					<div class="products__list">
+						<!-- product -->
+						<a class="product-card" href="#">
+							<span class="product-card__img">
+								<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+							</span>
+							<span class="product-card__info">
+								<span class="product-card__articul">1101280101</span>
+								<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+								<span class="product-card__props">
+									<span>ter Hürne - Hywood</span>
+									<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+								</span>
+							</span>
+						</a>
+						<!-- product -->
+						<a class="product-card" href="#">
+							<span class="product-card__img">
+								<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+							</span>
+							<span class="product-card__info">
+								<span class="product-card__articul">1101280101</span>
+								<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+								<span class="product-card__props">
+									<span>ter Hürne - Hywood</span>
+									<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+								</span>
+							</span>
+						</a>
+						<!-- product -->
+						<a class="product-card" href="#">
+							<span class="product-card__img">
+								<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+							</span>
+							<span class="product-card__info">
+								<span class="product-card__articul">1101280101</span>
+								<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+								<span class="product-card__props">
+									<span>ter Hürne - Hywood</span>
+									<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+								</span>
+							</span>
+						</a>
+						<!-- product -->
+						<a class="product-card" href="#">
+							<span class="product-card__img">
+								<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+							</span>
+							<span class="product-card__info">
+								<span class="product-card__articul">1101280101</span>
+								<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+								<span class="product-card__props">
+									<span>ter Hürne - Hywood</span>
+									<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+								</span>
+							</span>
+						</a>
+						<!-- product -->
+						<a class="product-card" href="#">
+							<span class="product-card__img">
+								<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+							</span>
+							<span class="product-card__info">
+								<span class="product-card__articul">1101280101</span>
+								<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+								<span class="product-card__props">
+									<span>ter Hürne - Hywood</span>
+									<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+								</span>
+							</span>
+						</a>
+						<!-- product -->
+						<a class="product-card" href="#">
+							<span class="product-card__img">
+								<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+							</span>
+							<span class="product-card__info">
+								<span class="product-card__articul">1101280101</span>
+								<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+								<span class="product-card__props">
+									<span>ter Hürne - Hywood</span>
+									<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+								</span>
+							</span>
+						</a>
+						<!-- product -->
+						<a class="product-card" href="#">
+							<span class="product-card__img">
+								<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+							</span>
+							<span class="product-card__info">
+								<span class="product-card__articul">1101280101</span>
+								<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+								<span class="product-card__props">
+									<span>ter Hürne - Hywood</span>
+									<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+								</span>
+							</span>
+						</a>
+						<!-- product -->
+						<a class="product-card" href="#">
+							<span class="product-card__img">
+								<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+							</span>
+							<span class="product-card__info">
+								<span class="product-card__articul">1101280101</span>
+								<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+								<span class="product-card__props">
+									<span>ter Hürne - Hywood</span>
+									<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+								</span>
+							</span>
+						</a>
+					</div>
+					<ul class="p-0 pagination">
+						<li class="page-item active"><a class="page-link" href="katalog/">1</a></li>
+						<li class="page-item"><a class="page-link" href="katalog/otopitelnoe-obrudovanie/">2</a>
+						</li>
+						<li class="page-item"><a class="page-link" href="katalog/otopitelnoe-obrudovan">3</a></li>
+						<li class="page-item"><a class="page-link" href="katalog/otopitelnoe-obrudov">4</a></li>
+						<li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+						<li class="page-item"><a class="page-link" href="katalog/otopiteln">10</a></li>
+					</ul>
+					<!-- record control -->
+					<div class="d-none record-control mt-52 mt-lg-36 mt-sm-28">
+						<div class="record-control__counter">
+							12 из 49 товаров
+						</div>
+						<button class="record-control__more btn btn--border btn--size_s" aria-label="Показать еще карточек">
+							Показать ещё
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="under-panel bg-beige">
+		<div class="under-panel__container container">
+			<div class="viewed">
+				<div class="viewed__row">
+					<div class="viewed__info">
+						<div class="viewed__title">Недавно просмотренные товары:</div>
+					</div>
+					<div class="viewed__items">
+						<div class="viewed__items-list">
+							<div class="vieved-card">
+								<div class="vieved-card__img">
+									<img src="docs/img/test/product-card-prev.jpg" alt="">
+								</div>
+								<div class="vieved-card__content">
+									<div class="vieved-card__subtitle">1101280101</div>
+									<a class="vieved-card__title" href="#">Z08b Oak Capitol Ree fextra-wide plank</a>
+								</div>
+							</div>
+							<div class="vieved-card">
+								<div class="vieved-card__img">
+									<img src="docs/img/test/product-card-prev.jpg" alt="">
+								</div>
+								<div class="vieved-card__content">
+									<div class="vieved-card__subtitle">1101280101</div>
+									<a class="vieved-card__title" href="#">Z08b Oak Capitol Ree fextra-wide plank</a>
+								</div>
+							</div>
+							<div class="vieved-card">
+								<div class="vieved-card__img">
+									<img src="docs/img/test/product-card-prev.jpg" alt="">
+								</div>
+								<div class="vieved-card__content">
+									<div class="vieved-card__subtitle">1101280101</div>
+									<a class="vieved-card__title" href="#">Z08b Oak Capitol Ree fextra-wide plank</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+{% endblock content %}

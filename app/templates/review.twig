@@ -1,0 +1,118 @@
+{% extends "layouts/page.twig" %}
+
+{% block content %}
+	<!-- anzeige -->
+	<section class="anzeige-main">
+		<div  class="anzeige-main__bg"> 
+			<!-- poster на случай если не грузит видео или не поддерживает -->
+			<video class="no-play-mobile" loop autoplay playsinline muted
+				poster="docs/img/review-prev.jpg">
+				<source src="docs/img/video/parket_doska.mp4" type="video/mp4">
+			</video>
+		</div>
+
+		<div class="anzeige-main__container container">
+			<div class="anzeige-main__content">
+				<h1 class="anzeige-main__title h2">
+					Обзор коллекции Dureco Floor
+				</h1>
+				<div class="anzeige-main__btns btns">
+					<div class="btns__list">
+						<a class="btn btn--bg " href="#" style="font-style: italic;">
+							<span class="btn__value">Здесь я остаюсь расслабленным...</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{% include "@/breadcrumbs.twig" with {
+		breadcrumbs: {
+			items: [{
+				href: "#",
+				text: "Главная"
+			}, {
+				href: "#",
+				text: "Каталог"
+			}, {
+				href: "#",
+				text: "Hywood"
+			}, {
+				href: "#",
+				text: "Floor Finder"
+			}]
+		}
+	} %}
+
+	<section class="section desc-item pt-60 pb-80 mb-32 pt-lg-40 pb-lg-80 pt-sm-28 pb-sm-48" style="background-image: url(docs/img/branch.png), url(docs/img/laminate.png);">
+		<div class="container container--s content">
+			<h3>Полы для здоровой среды обитания</h3>
+			<p>
+				Мы создаем продукты, с которыми вы соприкасаетесь каждый день. Они являются важной частью вашего дома. Наши полы поддерживают ощущение того, что вы и ваши близкие в надежных руках. Здоровая среда обитания важна для того, чтобы все оставалось так, как прежде.
+			</p>
+			<p>
+				В ter Hürne мы обязаны создать для вас здоровую среду обитания. Таким образом, мы берем на себя обязательство оснастить наши полы наилучшими характеристиками, чтобы предложить вам именно это: Здоровую среду обитания.
+			</p>
+		</div>
+	</section>
+
+	<section class="half-desc-b content">
+		<div class="container">
+			<div class="half-desc-b__row">
+				<div class="half-desc-b__info content">
+					<h3>Внешний вид декора</h3>
+					<div class="half-desc-b__text">
+						<p>
+							Древесина и древесные волокна имеют естественную склонность к набуханию при длительном воздействии жидкостей. По этой причине деревянные полы или полы из древесных материалов, таких как устойчивый материал HDF, не подходят для помещений, где часто используется вода. Полы в этих комнатах часто делают из камня или винила.
+						</p>
+						<p>
+							“Мы работаем с древесиной и древесными материалами уже более 60 лет. Мы знаем его сильные и слабые стороны. Вода является одним из них. И с Dureco мы взяли их под контроль.”
+						</p>
+					</div>
+					<div class="row-cols g-15 mt-4e">
+						<img src="docs/img/emissions.jpg" alt="">
+						<img src="docs/img/emissions.jpg" alt="">
+						<img src="docs/img/emissions.jpg" alt="">
+					</div>
+				</div>
+				<div class="half-desc-b__img">
+					<img data-src="docs/img/leaf-floor.jpg" uk-img alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section desc-item">
+		<div class="container container--s content">
+			<h3>Умные полы для вашего умного дома</h3>
+			<p>
+				Мы в ter Hürne изготавливаем наши полы с одной целью: чтобы вам было легко их укладывать. Чтобы они были практичными и удобными для вас в повседневной жизни. И что они обеспечивают вам наилучшую защиту.
+			</p>
+			<p>
+				Чтобы добиться этого, каждый этаж ter Hürne содержит в себе массу интеллекта. Мы точно согласовываем все: от конструкции изделия/используемых материалов и технологии соединения до герметизации. Вы можете воспринять результат как прочитанный: более умный пол, который должен сделать вашу жизнь немного проще.
+			</p>
+			<figure class="d-flex justify-content-center mt-4e">
+				<img src="docs/img/medals.jpg" alt="">
+			</figure>
+		</div>
+		<!-- gallery -->
+		<div class="container mt-5e">
+			<div class="row-cols-4 row-cols-sm-2 g-md-20" uk-lightbox="animation: slide">
+				<!-- img -->
+				<a class="img-cover" href="docs/img/gallery-review-1.jpg">
+					<img src="docs/img/gallery-review-1.jpg" alt="">
+				</a>
+				<a class="img-cover" href="docs/img/gallery-review-2.jpg">
+					<img src="docs/img/gallery-review-2.jpg" alt="">
+				</a>
+				<a class="img-cover" href="docs/img/gallery-review-3.jpg">
+					<img src="docs/img/gallery-review-3.jpg" alt="">
+				</a>
+				<a class="img-cover" href="docs/img/gallery-review-4.jpg">
+					<img src="docs/img/gallery-review-4.jpg" alt="">
+				</a>
+			</div>
+		</div>
+	</section>
+{% endblock content %}

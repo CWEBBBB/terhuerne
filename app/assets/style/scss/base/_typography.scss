@@ -1,0 +1,203 @@
+/*==================== TYPOGRAPHY ====================*/
+:root {
+	--fz-h1: 48px;
+	--fz-h2: 34px;
+	--fz-h3: 32px;
+	--fz-h4: 24px;
+	--fz-h5: 18px;
+	--fz-h5: 16px;
+
+	--color-title: var(--color-default);
+
+	@include desctop-min {
+		--fz-h1: 40px;
+		--fz-h2: 28px;
+		--fz-h3: 24px;
+		--fz-h4: 22px;
+	}
+
+	@include mobile {
+		--fz-h1: 34px;
+		--fz-h2: 22px;
+		--fz-h3: 20px;
+		--fz-h4: 18px;
+		--fz-h5: 16px;
+		--fz-h6: 14px;
+	}
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,.h5, h6, .h6 {
+	margin: 1.1em 0 0.63em;
+	font-weight: 300;
+	line-height: em(45, 34);
+	font-family: var(--fm-2);
+	color: var(--color-title);
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-primary);
+			text-decoration: none;
+		}
+	}
+}
+
+h1,
+.h1 {
+	font-weight: 700;
+	font-size: var(--fz-h1);
+}
+h2,
+.h2 {
+	font-size: var(--fz-h2);
+}
+h3,
+.h3 {
+	font-size: var(--fz-h3);
+}
+h4,
+.h4 {
+	font-size: var(--fz-h4);
+}
+
+ol,
+ul,
+ol,
+p,
+figure {
+	margin-top: 0;
+	margin-bottom: em(20, 16);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+ul,
+ol {
+	padding-left: 1.5em;
+
+	@at-root li {
+		margin-bottom: 0.7em;
+		list-style-type: circle;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+ol li {
+	list-style-type: decimal;
+}
+
+blockquote {
+	padding: 0.6em 0 0.6em 1em;
+	font-size: 1.2em;
+	color: var(--color-default);
+	border-left: 3px solid var(--color-primary);	
+}
+
+a {
+	color: inherit;
+
+	&:hover {
+		color: inherit;
+	}
+}
+
+[href] {
+	color: var(--color-link);
+	transition: color $duration;
+
+	&:not([href]) {
+		&:hover {
+			color: var(--color-link);
+		}
+	}
+
+	&:hover {
+		color: var(--color-link);
+		text-decoration: underline;
+	}
+}
+
+.content,
+.text {
+	&::after {
+		content: "";
+		display: block;
+		width: 100%;
+		clear: both;
+	}
+}
+
+.content {
+	line-height: calc(28/16);
+	color: var(--color-text);
+
+	h2,
+	.h2,
+	h3,
+	.h3,
+	h4,
+	.h4,
+	h5,
+	.h5 {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		& + ul,
+		& + ol,
+		& + p {
+			margin-top: 0;
+		}
+	}
+
+	@include tel {
+		line-height: calc(20/14);
+	}
+}
+
+.text {
+	font-size: 14px;
+	line-height: calc(25/14);
+
+	h2,
+	.h2,
+	h3,
+	.h3 {
+		margin: 1.2em 0 0.8em;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+article {
+	color: var(--color-text);
+}

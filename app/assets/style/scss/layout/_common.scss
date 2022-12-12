@@ -1,0 +1,266 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ COMMON LAYOUT ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.page {
+	&__title {
+		margin-bottom: em(50, 48);
+		font-weight: 400;
+		color: var(--color-default);
+	}
+	
+	&__btns-floating {
+		position: fixed;
+		right: 0;
+		top: calc(var(--header-height, 160px) + 50px);
+		z-index: $z-index-floating;
+		display: flex;
+		flex-direction: column;
+
+		.btn {
+			padding: em(8, 15)  em(15, 15);
+			min-height: em(50, 15);
+
+			&__icon {
+				height: em(20, 15);
+				width: em(20, 15);
+			}
+		}
+
+		> *:not(:last-child) {
+			border-bottom: 0.5px solid var(--color-white);
+		}
+
+		@include mobile {
+			top: calc(var(--header-height, 160px) + 50px);
+		}
+	}
+
+	&__btn-top {
+		position: fixed;
+		right: 30px;
+		bottom: 110px;
+		z-index: $z-index-floating;
+		opacity: 0;
+		pointer-events: none;
+		transform-origin: 100% 100%;
+		transform: translateY(50px) scale(0);
+
+
+		&.visible {
+			opacity: 1;
+			pointer-events: all;
+			transform: translateY(0) scale(1);
+		}
+
+		@include mobile {
+			right: 20px;
+		}
+	}
+
+	@include mobile {
+		&__title {
+			margin-bottom: em(28, 34);
+		}
+	}
+}
+
+.site {
+	display: flex;
+	flex-direction: column;
+	padding-top: var(--header-height, 85px);
+	min-height: 100vh;
+
+	&__content {
+		padding: rem(30) 0 rem(60);
+		flex: 1;
+
+		@include mobile {
+			padding-bottom: 4rem;
+
+			.breadcrumbs + & {
+				padding-top: 15px;
+			}
+		}
+	}
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ COMMON LAYOUT ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.boxes {
+	--boxes-offset-x: 30px;
+
+    $this: &;
+
+    display: flex;
+    width: 100%;
+
+    & > * {
+        min-width: 0;
+
+        & + * {
+            margin-left: var(--boxes-offset-x);
+        }
+    }
+
+    &__main,
+    &__side {
+        > * {
+            margin-bottom: rem(30);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__main {
+        flex-grow: 1;
+    }
+
+    &__side {
+        flex-shrink: 0;
+        width: 270px;
+
+        &:empty {
+            display: none;
+        }
+
+        &--rubber {
+            width: 32%;
+        }
+    }
+
+	&--without {
+		&_offset {
+			--boxes-offset-x: 0px;
+		}
+	}
+
+	@include table {
+		flex-direction: column;
+
+		& > * {
+			min-width: 0;
+	
+			& + * {
+				margin: 30px 0 0;
+			}
+		}
+
+		&__side {
+			width: initial
+		}
+	}
+}
+
+/* btns */
+.btns {
+	$this: &;
+	
+	&__list {
+		--air-x: 16px;
+		--air-y: 16px;
+		
+		@include row;
+
+		> * {
+			@include col;
+		}
+	}
+
+	&--direction {
+		&_col {
+			.btns__list {
+				align-items: initial;
+				flex-direction: column;
+			}
+		}
+	}
+
+	&--no-wrap {
+		#{$this}__list {
+			flex-wrap: nowrap;
+		}
+	}
+
+	&--filling_full {
+		.btns__list {
+			> * {
+				flex-grow: 1;
+			}
+		}
+	}
+}
+
+.items {
+	--air-x: 24px;
+	--air-y: 24px;
+
+	@include row;
+
+	& > * {
+		@include col;
+	}
+}
+
+.checkboxes {
+	&__list {
+		@include row;
+		--air-x: #{rem(30)};
+		--air-y: 20px;
+
+		> * {
+			@include col;
+		}
+	}
+}
+
+/*section*/
+.section {
+	padding: 80px 0 20px;
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	&__title {
+		margin-bottom: rem(40);
+	}
+
+	&#{&}--internal  {
+		padding: 52px 0 63px;
+
+		@include mobile {
+			padding: 39px 0 66px;
+		}
+	}
+
+	@include desctop-min {
+		padding: 60px 0 20px;
+	}
+
+	@include table {
+		padding: 40px 0 20px;
+	}
+
+	@include mobile {
+		&__title {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.col-count {
+	column-count: 2;
+
+	& > * {
+		break-inside: avoid-column;
+	}
+
+	@include mobile {
+		&-sm {
+			&-sm-1 {
+				@include mobile {
+					column-count: 1;
+				}
+			}
+		}
+	}
+}

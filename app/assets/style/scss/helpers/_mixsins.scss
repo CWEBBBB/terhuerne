@@ -1,0 +1,168 @@
+@function getThemeColor($lightColor, $darkColor) {
+	@return var(--light, #{$lightColor}) var(--dark, #{$darkColor});
+}
+
+@mixin desctop {
+	@media (max-width: #{$desctop}px) {
+		@content;
+	}
+}
+
+@mixin desctop-mid {
+	@media (max-width: #{$desctop-mid}px) {
+		@content;
+	}
+}
+
+@mixin desctop-min {
+	@media (max-width: #{$desctop-min}px) {
+		@content;
+	}
+}
+
+@mixin table {
+	@media (max-width: #{$table}px) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: #{$mobile}px) {
+		@content;
+	}
+}
+
+@mixin tel {
+	@media (max-width: #{$tel}px) {
+		@content;
+	}
+}
+
+@mixin from($min_width) {
+	@media screen and (min-width: #{$min_width + 1}px) {
+		@content;
+	}
+}
+
+@mixin to($max_width) {
+	@media screen and (max-width: #{$max_width}px) {
+		@content;
+	}
+}
+
+@mixin from_to($min_width, $max_width) {
+	@media screen and (min-width: #{$min_width}px) and (max-width: #{$max_width}px) {
+		@content;
+	}
+}
+
+@mixin generateСolorVariables($colors) {
+	@each $name, $value in $colors {
+		@if type-of($value) == "list" {
+			--color-#{$name}: #{getThemeColor(#{nth($value, 1)}, #{nth($value, 2)})};
+			
+		} @else {
+			--color-#{$name}: #{$value};
+		}
+	}
+}
+
+@mixin reset-link {
+	font-weight: inherit;
+	text-decoration: none;
+	color: inherit;
+
+	@content;
+}
+
+@mixin reset-list {
+	padding-left: 0;
+	&,
+	ul {
+		padding-left: 0;
+	}
+
+	li {
+		list-style-type: none;
+	}
+
+	@content;
+}
+
+@mixin ratio($height, $width) {
+	&::before {
+		content: "";
+		display: block;
+		padding-bottom: pr($height, $width);
+	}
+	@content;
+}
+
+@mixin fit-cover($position: center) {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: $position;
+	@content;
+}
+
+@mixin fit-contain($position: center) {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: $position;
+	@content;
+}
+
+@mixin scrollbars($size: 12px, $foreground: var(--color-primary), $background: #F8F8F8) {
+    // для firefox
+    scrollbar-color: $foreground $background;
+    /* «цвет ползунка» «цвет полосы скроллбара» */
+	@if $size {
+		scrollbar-width: thin;
+	    /* толщина */
+	}
+
+    // Для Chrome
+    &::-webkit-scrollbar {
+		@if $size {
+			width: $size;
+			height: $size;
+		}
+        background-color: $background;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $foreground;
+		@if $size {
+			border-radius: calc($size/2);
+		}
+       
+    }
+}
+
+@mixin scrollbars_size($size: 12px) {
+	scrollbar-width: thin;
+
+    // Для Chrome
+    &::-webkit-scrollbar {
+		width: $size;
+		height: $size;
+    }
+}
+
+@mixin line-clamp($value: 4) {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $value;
+	overflow: hidden;
+	@content;
+}
+
+@mixin column-count($columns: 2) {
+	column-count: #{$columns};
+	
+	> * {
+		break-inside: avoid;
+	}
+}

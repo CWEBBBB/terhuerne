@@ -1,0 +1,147 @@
+.contacts-b {
+	&__img-prev {
+		max-height: 270px;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	
+	&__info {
+
+		@include from($table) {
+			padding-right: 10px;
+			max-height: 520px;
+			overflow: auto;
+			@include scrollbars(8px, var(--color-primary));
+		}
+	}
+
+	@include from($table) {
+		&__map {
+			min-height: initial;
+			height: 100%;
+		}
+	}
+
+	@include table {
+		&__img-prev {
+			order: 2;
+			max-height: initial;
+		}
+
+		.map {
+			margin-left: calc(-1 * var(--container-offset-x));
+			margin-right: calc(-1 * var(--container-offset-x));
+		}	
+	}
+}
+
+.desc-item {
+	color: var(--color-text--light);
+	background-repeat: no-repeat;
+	background-position: left -1% center, right -200px center;
+	background-size: auto auto;
+
+	@include desctop-min {
+		padding: rem(60) 0 rem(80);
+	}
+
+	@include mobile {
+		padding: 30px 0;
+		background-size: 50% auto;
+		background-position: left -1% top, right -30% bottom;
+	}
+}
+
+.half-desc-b {
+	position: relative;
+
+	&__row {
+		@include row;
+	
+		--air-x: 0px;
+		--air-y: 0px;
+
+		> * {
+			@include col;
+			@include widthCol(6);
+		}
+	}
+
+	&__info {
+		--color-title: var(--color-white);
+
+		position: relative;
+		padding: 45px 32px 45px 0;
+		min-height: 450px;
+		color: var(--color-white);
+
+		&::before {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			z-index: -1;
+			display: block;
+			width: 9999px;
+			background-color: var(--color-primary);
+		}	
+
+		h2, h3 {
+			font-weight: 600;
+		}
+	}
+	
+	&__text {
+		font-style: italic;
+		font-weight: 600;
+	}
+
+	@include from($table) {
+		&__img {
+			position: absolute;
+			left: 50%;
+			top: 0;
+			right: 0;
+			height: 100%;
+			
+	
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+
+	@include table {
+		&__row {
+			> * {
+				@include widthCol(12);
+			}
+		}
+
+		&__info {
+			padding-right: 0;
+
+			&::before {
+				right: calc(var(--container-offset-x) * -1);
+			}
+		}
+
+		&__img {
+			margin: 0 calc(-1 * var(--container-offset-x));
+			width: calc(100% + var(--container-offset-x) * 2);
+		}
+	}
+
+	@include mobile {
+		&__info {
+			padding: 18px 0 42px;
+		}
+	}
+}

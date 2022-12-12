@@ -1,0 +1,8 @@
+{
+	"page": {
+		"class": "notify-pg err"
+	},
+	"site_content": {
+		"attrs": "style='background-image: url(./docs/img/404-bg.png)'"
+	}
+}

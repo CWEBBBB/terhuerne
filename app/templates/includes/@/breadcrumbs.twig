@@ -1,0 +1,21 @@
+<!-- BREAD CRUMBS -->
+
+<div class="breadcrumbs">
+	<div class="container">
+		<ul class="breadcrumbs__list">
+			{% for item in breadcrumbs.items %}
+				{% if loop.last %}
+					<li class="breadcrumbs__item">
+						<span class="breadcrumbs__link"> {{ item.text }}
+						</span>
+					</li>
+				{% else %}
+					<li class="breadcrumbs__item">
+						<a class="breadcrumbs__link" href="{{ item.href|default('#') }}"> {{ item.text }}
+						</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</div>

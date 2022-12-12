@@ -1,0 +1,13 @@
+{
+	"site": {
+		"class": "p-0"
+	},
+	"site_content": {
+		"class": "p-0"
+	},
+	"header": {
+		"params": {
+			"bg": "alpha"
+		}
+	}
+}

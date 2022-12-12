@@ -1,0 +1,43 @@
+{# ------ list ----- #}
+{% macro list(list, default_class, lvl = 0) %}
+	{% import _self as tree %}	
+	
+	{% if lvl != 0 %}
+		<div class="menu__submenu menu__submenu--lvl_{{ lvl }}">
+	{% endif %}
+	<ul 
+		{% include "@/_default.twig" with {
+			_default: {
+				class: default_class|default("") ~ list.class|default("")
+ 			}
+		} %}
+	>
+		{% for item in list.items %}
+			<li class="menu__item">
+				<a class="menu__link"{% if item.link.href %} href="{{ item.link.href }}"{% endif %}>
+					{{ item.link.text }}
+				</a>
+
+				{% if item.submenu %}
+					{{ tree.list(item.submenu, "menu__submenu-list", lvl + 1) }}
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+	{% if lvl != 0 %}
+	</div>
+	{% endif %}
+{% endmacro %}
+
+<nav
+	{% include "@/_default.twig" with {
+		_default: {
+			default_class: "menu",
+			class: menu.class
+		}
+	} %}
+>	
+	{% import _self as tree %}
+
+	{{ tree.list(menu.list, "menu__list", 0) }}
+</nav>

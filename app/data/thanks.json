@@ -1,0 +1,8 @@
+{
+	"page": {
+		"class": "notify-pg thanks"
+	},
+	"site_content": {
+		"attrs": "style='background-image: url(./docs/img/succes-page-bg.png)'"
+	}
+}

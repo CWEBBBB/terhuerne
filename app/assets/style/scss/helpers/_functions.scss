@@ -1,0 +1,17 @@
+@use "sass:math";
+
+@function rubberSize($minValue, $maxValue, $minScrin, $maxScrin) {
+	@return calc(#{$minValue}px + (#{$maxValue} - #{$minValue}) * ((100vw - #{$minScrin}px) / (#{$maxScrin} - #{$minScrin})));
+}
+
+@function rem($value) {
+	@return #{math.div(floor(math.div($value, $fz) * 100), 100)}rem;
+}
+
+@function em($childSize, $parentSize) {
+	@return #{calc(floor(calc($childSize / $parentSize * 100)) / 100)}em;
+}
+
+@function pr($childSize, $parentSize) {
+	@return #{calc(floor(calc($childSize / $parentSize * 100000)) / 1000) * 1%};
+}

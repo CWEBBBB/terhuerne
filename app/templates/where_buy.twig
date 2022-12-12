@@ -1,0 +1,211 @@
+{% extends "layouts/page.twig" %}
+
+{% block breadcrumbs %}
+	{% include "@/breadcrumbs.twig" with {
+		breadcrumbs: {
+			items: [{
+				href: "#",
+				text: "Главная"
+			}, {
+				href: "#",
+				text: "Каталог"
+			}, {
+				href: "#",
+				text: "Hywood"
+			}, {
+				href: "#",
+				text: "Floor Finder"
+			}]
+		}
+	} %}
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<h1 class="page__title">Где купить</h1>
+		<div class="contacts-b">
+			<div class="row">
+				<div class="col-5 col-md-12">
+					<form class="dealership-application dealership-application--direction_col">
+						<div class="dealership-application__fieldset">
+							<div class="dealership-application__select b-select">
+								<select name="sity">
+									<option selected="" disabled="">Город</option>
+									<option value="msk">Минск</option>
+									<option value="brst">Брест</option>
+								</select>
+							</div>
+							<div class="dealership-application__btns btns btns--filling_full">
+								<div class="btns__list">
+									<button class="btn btn--border" type="submit">
+										<span class="btn__value">Найти дилера</span>
+									</button>
+								</div>
+							</div>
+							<!-- map copy для мобильной версии  -->
+							<div class="d-none d-md-block map map--mob-blocked">
+								<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Acde62eefef60912d114e4133bf39ffea0eede291ea70a3c77ad4960fa67f7b25&amp;source=constructor"></iframe>
+							</div>
+							<div class="dealership-application__checkboxes checkboxes">
+								<div class="checkboxes__list">
+									<label class="b-checkbox">
+										<input id="privacy-checkbox" type="checkbox" name="privacy">
+										<span class="b-checkbox__custom"></span>
+										<span class="b-checkbox__content">Инженерный пол</span>
+									</label>
+									<label class="b-checkbox">
+										<input id="privacy-checkbox" type="checkbox" name="privacy">
+										<span class="b-checkbox__custom"></span>
+										<span class="b-checkbox__content">Виниловое напольное покрытие</span>
+									</label>
+									<label class="b-checkbox">
+										<input id="privacy-checkbox" type="checkbox" name="privacy">
+										<span class="b-checkbox__custom"></span>
+										<span class="b-checkbox__content">Avatara 3.0</span>
+									</label>
+									<label class="b-checkbox">
+										<input id="privacy-checkbox" type="checkbox" name="privacy">
+										<span class="b-checkbox__custom"></span>
+										<span class="b-checkbox__content">Ламинированный пол</span>
+									</label>
+									<label class="b-checkbox">
+										<input id="privacy-checkbox" type="checkbox" name="privacy">
+										<span class="b-checkbox__custom"></span>
+										<span class="b-checkbox__content">Dureco</span>
+									</label>
+									<label class="b-checkbox">
+										<input id="privacy-checkbox" type="checkbox" name="privacy">
+										<span class="b-checkbox__custom"></span>
+										<span class="b-checkbox__content">Хайвуд </span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="contacts-b__info">
+						<div class="mt-4e contacts-group-list">
+							<div class="contacts-group">
+								<h5 class="contacts-group__title">
+									<i class="contacts-group__title-icon">
+										<svg aria-hidden="true">
+											<use xlink:href="assets/img/icons/ui/sprite.svg#map-mark"></use>
+										</svg>
+									</i>
+									<span>ООО «ТД Компани»</span>
+								</h5>
+								<div class="firm-info">
+									<svg class="firm-info__icon">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#location"></use>
+									</svg>
+									Уручская 14а (склад)
+								</div>
+								<div class="firm-info">
+									<svg class="firm-info__icon">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#clock"></use>
+									</svg>
+									пн-пт: 10.00-19.00, сб-вс: выходной
+								</div>
+								<div class="firm-info firm-info--email" data-copy="info@autobis.org" title="Почта">
+									<svg class="firm-info__icon" height="16" width="16" aria-hidden="true">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#copy"></use>
+									</svg>
+									info@2611.by
+								</div>
+							</div>
+							<div class="contacts-group">
+								<h5 class="contacts-group__title">
+									<i class="contacts-group__title-icon">
+										<svg aria-hidden="true">
+											<use xlink:href="assets/img/icons/ui/sprite.svg#map-mark"></use>
+										</svg>
+									</i>
+									<span>ООО «ТД Компани»</span>
+								</h5>
+								<div class="firm-info">
+									<svg class="firm-info__icon">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#location"></use>
+									</svg>
+									Уручская 14а (склад)
+								</div>
+								<div class="firm-info">
+									<svg class="firm-info__icon">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#clock"></use>
+									</svg>
+									пн-пт: 10.00-19.00, сб-вс: выходной
+								</div>
+								<div class="firm-info firm-info--email" data-copy="info@autobis.org" title="Почта">
+									<svg class="firm-info__icon" height="16" width="16" aria-hidden="true">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#copy"></use>
+									</svg>
+									info@2611.by
+								</div>
+							</div>
+							<div class="contacts-group">
+								<h5 class="contacts-group__title">
+									<i class="contacts-group__title-icon">
+										<svg aria-hidden="true">
+											<use xlink:href="assets/img/icons/ui/sprite.svg#map-mark"></use>
+										</svg>
+									</i>
+									<span>ООО «ТД Компани»</span>
+								</h5>
+								<div class="firm-info">
+									<svg class="firm-info__icon">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#location"></use>
+									</svg>
+									Уручская 14а (склад)
+								</div>
+								<div class="firm-info">
+									<svg class="firm-info__icon">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#clock"></use>
+									</svg>
+									пн-пт: 10.00-19.00, сб-вс: выходной
+								</div>
+								<div class="firm-info firm-info--email" data-copy="info@autobis.org" title="Почта">
+									<svg class="firm-info__icon" height="16" width="16" aria-hidden="true">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#copy"></use>
+									</svg>
+									info@2611.by
+								</div>
+							</div>
+							<div class="contacts-group">
+								<h5 class="contacts-group__title">
+									<i class="contacts-group__title-icon">
+										<svg aria-hidden="true">
+											<use xlink:href="assets/img/icons/ui/sprite.svg#map-mark"></use>
+										</svg>
+									</i>
+									<span>ООО «ТД Компани»</span>
+								</h5>
+								<div class="firm-info">
+									<svg class="firm-info__icon">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#location"></use>
+									</svg>
+									Уручская 14а (склад)
+								</div>
+								<div class="firm-info">
+									<svg class="firm-info__icon">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#clock"></use>
+									</svg>
+									пн-пт: 10.00-19.00, сб-вс: выходной
+								</div>
+								<div class="firm-info firm-info--email" data-copy="info@autobis.org" title="Почта">
+									<svg class="firm-info__icon" height="16" width="16" aria-hidden="true">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#copy"></use>
+									</svg>
+									info@2611.by
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-7 col-md-12">
+					<!-- map copy для десктопной версии -->
+					<div class="d-md-none map map--blocked">
+						<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Acde62eefef60912d114e4133bf39ffea0eede291ea70a3c77ad4960fa67f7b25&amp;source=constructor"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

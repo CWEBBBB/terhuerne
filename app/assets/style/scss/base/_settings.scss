@@ -1,0 +1,274 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ SETTINGS ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.jcc,
+.aic {
+	display: flex;
+}
+
+.jcc {
+	justify-content: center;
+}
+
+.aic {
+	align-items: center;
+}
+
+.fl {
+	&-right {
+		float: right;
+	}
+
+	@include mobile {
+		&-sm-none {
+			float: none;
+		}
+	}
+}
+
+.size-auto {
+	width: initial !important;
+	height: auto !important;
+}
+
+$utilities: (
+	"display": (
+		property: display,
+		class: d,
+		values: none inline "inline-block" block "inline-flex" flex "inline-grid" grid,
+	),
+	"flex-wrap": (
+		property: "flex-wrap",
+		class: flex,
+		values: wrap "nowrap",
+	),
+	"flex-direction": (
+		property: flex-direction,
+		responsive: false,
+		class: flex,
+		values: column "column-reverse" row row-reverse,
+	),
+	"align-items": (
+		responsive: false,
+		property: "align-items",
+		values: (
+			start: "flex-start",
+			center: "center",
+			end: "flex-end",
+		),
+	),
+	"justify-content": (
+		responsive: false,
+		property: "justify-content",
+		values: (
+			start: "flex-start",
+			center: "center",
+			end: "flex-end",
+			around: "space-around",
+			between: "space-between",
+		),
+	),
+	"flex-shrink": (
+		responsive: false,
+		property: "flex-shrink",
+		values: 0 1,
+	),
+	"flex-grow": (
+		property: "flex-grow",
+		values: 0 1,
+	),
+	"height": (
+		responsive: false,
+		property: "height",
+		class: h,
+		values: (
+			100: "100%",
+		),
+	),
+	"width": (
+		responsive: false,
+		property: "width",
+		class: w,
+		values: (
+			100: "100%",
+		),
+	),
+	"order": (
+		property: order,
+		values: (
+			n2: -2,
+			n1: -1,
+			1: 1,
+			2: 2,
+			3: 3,
+		),
+	),
+	"font-weight": (
+		responsive: false,
+		property: "font-weight",
+		class: fw,
+		values: 200 300 400 500 600 700 800,
+	),
+	"font-size": (
+		property: "font-size",
+		class: fz,
+		values: (
+			10: "10px",
+			12: "12px",
+			14: "14px",
+			16: "16px",
+			18: "18px",
+			20: "20px",
+			24: "24px",
+			28: "28px",
+		),
+	),
+	"color": (
+		responsive: false,
+		property: "color",
+		class: color,
+		values: (
+			primary: var(--color-primary),
+			secondary: var(--color-secondary),
+			default: var(--color-default),
+			text-light: var(--color-text--light),
+		),
+	),
+	"fill": (
+		responsive: false,
+		property: "fill",
+		class: fill,
+		values: (
+			"primary": var(--color-primary),
+			"secondary": var(--color-secondary),
+			"green": var(--color-green),
+			"red": var(--color-red),
+		),
+	),
+	"line-height": (
+		responsive: false,
+		property: "line-height",
+		class: lh,
+		values: (
+			1: 1,
+			sm: 1.22,
+			base: 1.5,
+			lg: 2,
+		),
+	),
+	"text-decoration": (
+		responsive: false,
+		property: "text-decoration",
+		values: (
+			none: none,
+			through: "line-through",
+			underline: underline,
+		),
+	),
+	"text-transform": (
+		responsive: false,
+		property: "text-transform",
+		values: uppercase lowercase none,
+	),
+	"white-space": (
+		responsive: false,
+		property: "white-space",
+		class: text,
+		values: nowrap wrap,
+	),
+	"background-color": (
+		property: "background-color",
+		responsive: false,
+		class: bg,
+		values: (
+			"beige": #F5F3F1
+		),
+	),
+	"text-align": (
+		property: "text-align",
+		responsive: false,
+		class: text,
+		values: (
+			start: left,
+			center: center,
+			right: right,
+		),
+	),
+	"border-radius": (
+		property: "border-radius",
+		responsive: false,
+		class: brs,
+		values: (
+			4: 4px,
+			8: 8px,
+			12: 12px,
+			16: 16px,
+			20: 20px,
+			24: 24px,
+			28: 28px,
+			32: 32px,
+			50p: 50%,
+		),
+	),
+);
+
+@each $prop, $unit in $utilities {
+	$property: map-get($unit, property);
+	$values: map-get($unit, values);
+	$responsive: true;
+	$name: $prop;
+	$is_important: true;
+	$after_value: "!important";
+
+	@if map-has-key($unit, responsive) {
+		$responsive: map-get($unit, responsive);
+	}
+
+	@if map-has-key($unit, class) {
+		$name: map-get($unit, class);
+	}
+
+	@if map-has-key($unit, enable-important-utilities) {
+		$is_important: map-get($unit, enable-important-utilities);
+	}
+
+	@if $is_important != true {
+		$after_value: "";
+	}
+
+	@if type-of($values) == "map" {
+		@each $postfix, $val in $values {
+			.#{$name}-#{$postfix} {
+				#{$property}: #{$val}#{$after_value};
+			}
+		}
+
+		@if $responsive == true {
+			@each $break, $value_break in $breakpoints {
+				@media (max-width: $value_break) {
+					@each $postfix, $val in $values {
+						.#{$name}-#{$break}-#{$postfix} {
+							#{$property}: #{$val}#{$after_value};
+						}
+					}
+				}
+			}
+		}
+	} @else if type-of($values) == "list" or "string" {
+		@each $postfix in $values {
+			.#{$name}-#{$postfix} {
+				#{$property}: #{$postfix}#{$after_value};
+			}
+		}
+
+		@if $responsive == true {
+			@each $break, $value_break in $breakpoints {
+				@media (max-width: $value_break) {
+					@each $postfix in $values {
+						.#{$name}-#{$break}-#{$postfix} {
+							#{$property}: #{$postfix}#{$after_value};
+						}
+					}
+				}
+			}
+		}
+	}
+}

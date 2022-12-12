@@ -1,0 +1,68 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ VARIABLES ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// spacing
+$container-offset-x: 30px;
+
+// font-size
+$fz: 16;
+$duration: 0.2s;
+
+// z-index
+$z-index-red: 0;
+$z-index: 1;
+$z-index-inc: 2;
+$z-index-header: 25;
+$z-index-floating: 20; 
+$z-index-popup: 100;
+$z-index-popover: 1000;
+
+$baseColor: (
+	"primary": #B7B000,
+	"primary-hover": #958F00,
+	"default": #241600 #fff,
+	"white": #fff,
+	"black": #000,
+	"green": #3cae0f,
+	"red": red,
+);
+
+// colors
+$colors: (
+	"text": var(--color-default) #fff,
+	"text--light": #5C5C5C,
+	"border": var(--color-default) #fff,
+	"border--alpha": rgba(92, 92, 92, 0.35) #fff,
+	"bg": #fff var(--color-default),
+	"bg-body": #fff var(--color-default),
+	"bg-card": #fff var(--color-default),
+	"link": var(--color-primary)
+);
+
+:root {
+	--ON_toggle: initial;
+	--OFF_toggle: ;
+
+	/* spacings */
+	--container-offset-x: #{$container-offset-x};
+
+	/*font-family*/
+	--fm-1: "Segoe UI", sans-serif;
+	--fm-2: "Px Grotesk", sans-serif;
+	--fm-3: "Inter", sans-serif;
+
+	/* theme */
+	--light: var(--ON_toggle);
+	--dark: var(--OFF_toggle);
+
+	@include table {
+		--container-offset-x: 20px;
+	}
+
+	@include mobile {
+		--container-offset-x: 15px;
+	}
+}
+
+* {
+	@include generateСolorVariables($baseColor);
+	@include generateСolorVariables($colors);
+}

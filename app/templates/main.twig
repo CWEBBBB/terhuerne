@@ -1,0 +1,121 @@
+{% extends "layouts/page.twig" %}
+
+{% block content %}
+	<!-- anzeige -->
+	<section class="anzeige-main">
+		<picture  class="anzeige-main__bg"> 
+			<source type="image/avif" srcset="docs/img/anzeige-main.avif">
+			<img src="docs/img/anzeige-main.jpg" alt="">
+		</picture>
+
+		<div class="anzeige-main__container container">
+			<div class="anzeige-main__content">
+				<h1 class="anzeige-main__title h2">
+					Официальный сайт <br>
+					напольных покрытий TER HÜRNE в Беларуси
+				</h1>
+				<div class="anzeige-main__btns btns">
+					<div class="btns__list">
+						<a class="btn btn--bg " href="#" style="font-style: italic;">
+							<span class="btn__value">Вот где я...</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Почему мы -->
+	<section class="section my-60 py-48 my-xl-40 my-sm-0">
+		<div class="container">
+			<div class="row g-35">
+				<div class="col-5 col-sm-12 d-flex flex-column">
+					<h2>Почему <span class="color-primary">TER HÜRNE</span></h2>
+					<div class="content mb-4e color-text-light">
+						<p>
+							Отличные свойства древесины всегда были эталоном для всей продукции дома ter Hürne — с момента основания компании более 60 лет назад и до сегодняшнего дня. Дерево остается нашим образцом для подражания в отношении умных, альтернативных материалов для естественного здорового образа жизни.
+						</p>
+					</div>
+					<div class="mt-auto btns">
+						<div class="btns__list">
+							<a class="btn btn--border" href="#">
+								<span class="btn__value">Узнать подробнее</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-7 col-sm-12">
+					<div class="double-picture">
+						<div class="double-picture__img">
+							<img data-src="docs/img/legs.jpg" uk-img alt="">
+						</div>
+						<div class="double-picture__img">
+							<img data-src="docs/img/terHurne_engraving.jpg" uk-img alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Оставить заявку -->
+	<section class="section section--internal bg-beige">
+		<div class="container">
+			<form class="dealership-application" action="#">
+				<h2 class="dealership-application__title">Оставить заявку на дилерство</h2>
+				<div class="dealership-application__fieldset">
+					<div class="dealership-application__select b-select b-select--without_border">
+						<select name="sity">
+							<option selected disabled>Город</option>
+							<option value="msk">Минск</option>
+							<option value="brst">Брест</option>
+						</select>
+					</div>
+					<div class="dealership-application__checkboxes checkboxes">
+						<div class="checkboxes__list">
+							<label class="b-checkbox b-checkbox--style_2">
+								<input id="privacy-checkbox" type="checkbox" name="privacy">
+								<span class="b-checkbox__custom"></span>
+								<span class="b-checkbox__content">Инженерный пол</span>
+							</label>
+							<label class="b-checkbox b-checkbox--style_2">
+								<input id="privacy-checkbox" type="checkbox" name="privacy">
+								<span class="b-checkbox__custom"></span>
+								<span class="b-checkbox__content">Виниловое напольное покрытие</span>
+							</label>
+							<label class="b-checkbox b-checkbox--style_2">
+								<input id="privacy-checkbox" type="checkbox" name="privacy">
+								<span class="b-checkbox__custom"></span>
+								<span class="b-checkbox__content">Avatara 3.0</span>
+							</label>
+							<label class="b-checkbox b-checkbox--style_2">
+								<input id="privacy-checkbox" type="checkbox" name="privacy">
+								<span class="b-checkbox__custom"></span>
+								<span class="b-checkbox__content">Ламинированный пол</span>
+							</label>
+							<label class="b-checkbox b-checkbox--style_2">
+								<input id="privacy-checkbox" type="checkbox" name="privacy">
+								<span class="b-checkbox__custom"></span>
+								<span class="b-checkbox__content">Dureco</span>
+							</label>
+							<label class="b-checkbox b-checkbox--style_2">
+								<input id="privacy-checkbox" type="checkbox" name="privacy">
+								<span class="b-checkbox__custom"></span>
+								<span class="b-checkbox__content">Хайвуд </span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="dealership-application__btns btns">
+					<div class="btns__list">
+						<button class="btn btn--border" type="submit">
+							<span class="btn__value">Найти дилера</span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+	<!-- map -->
+	<div class="map map--blocked">
+		<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Acde62eefef60912d114e4133bf39ffea0eede291ea70a3c77ad4960fa67f7b25&amp;source=constructor" frameborder="0"></iframe>
+	</div>
+{% endblock content %}

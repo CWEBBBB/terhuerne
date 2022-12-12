@@ -1,0 +1,85 @@
+{% if _default.id %}
+    id="{{ _default.id }}"
+{% endif %}
+
+{% if _default.default_class or _default.class or _default.params or _default.params_custom or _default.params_boolean %}
+    {% set _default_class_default = "" %}
+    {% set _default_class_boolean = "" %}
+    {% set class = _default.class is iterable ? (_default.class.this ? ' ' ~ _default.class.this : '') : (_default.class ? ' ' ~ _default.class : '') %}
+
+    {% if _default.default_class %}
+        {% set _default_class_default = _default.default_class %}
+    {% endif %}
+
+    {% for key, data in _default.params %}
+        {% if not (data is iterable) and data %}
+            {% set _default_class_default = _default_class_default ~ " " ~ _default.default_class ~ "--" ~ key ~ "_" ~ data %}
+        {% elseif data is iterable %}
+            {% for item in data %}
+                {% set _default_class_default = _default_class_default ~ " " ~ _default.default_class ~ "--" ~ key ~ "_" ~ item %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+
+    {% for key, data in _default.params_custom %}
+        {% if not (data is iterable) %}
+            {% if data or data == "0" %}
+                {% set _default_class_default = _default_class_default ~ " " ~ key ~ "-" ~ data %}
+            {% endif %}
+        {% elseif data is iterable and (data.value or data.value == "0") %}
+            {% set _default_class_default = _default_class_default ~ " " ~ key ~ "-" ~ (data.type ? "-" ~ data.type ~ "_" : "") ~ data.value %}
+        {% else %}
+            {% for item in data %}
+                {% set _default_class_default = _default_class_default ~ " " ~ key ~ "-" ~ (item.type ? "-" ~ item.type ~ "_" : "") ~ item.value %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+
+    {% for key, item in _default.params_boolean %}
+        {% if item %}
+            {% set _default_class_boolean = _default_class_boolean ~ " " ~ key %}
+        {% endif %}
+    {% endfor %}
+
+    class="{{ (class ~ " " ~ _default_class_default ~ (_default.additional_class ? ' ' ~ _default.additional_class : '') ~ _default_class_boolean)|trim }}"
+{% endif %}
+
+{% if _default.attrs %}
+    {% if _default.attrs is iterable %}
+        {% for key, attr_value in _default.attrs %}
+            {{ key }}{% if not (attr_value == "null") %}="{{ attr_value }}"{% endif %}
+        {% endfor %}
+    {% else %}
+        {{ _default.attrs }}
+    {% endif %}
+{% endif %}
+
+{% if _default.data %}
+    {% for key, data in _default.data %}
+        data-{{ key }}={% if not (data is iterable) %}"{{ data }}"{% else %}'{{ data|json_encode() }}'{% endif %}
+    {% endfor %}
+{% endif %}
+
+{% if _default.tooltip %}
+    uk-tooltip="title: {{ _default.tooltip.text }}; pos: {{ _default.tooltip.pos|default('bottom-center') }}; offset: {{ not (_default.tooltip.pos == 'right-center' or _default.tooltip.pos == 'left-center') ? 6 : 9 }}"
+{% endif %}
+
+{% if _default.disabled %}
+    {{ ' disabled' }}
+{% endif %}
+
+{% if _default.ripple %}
+    {{ ' ripple' }}
+{% endif %}
+
+{% if _default.onClick %}
+    {% if _default.onClick.open and not _default.onClick.close %}
+        onClick="if (!this.classList.contains('active')) {{ _default.onClick.open }}"
+    {% elseif _default.onClick.open and _default.onClick.close %}
+        onClick="!this.classList.contains('active') ? {{ _default.onClick.open }} : {{ _default.onClick.close }}"
+    {% elseif not _default.onClick.open and _default.onClick.close %}
+    onClick="if (this.classList.contains('active')) {{ _default.onClick.close }}"
+    {% else %}
+        onClick="{{ _default.onClick.open }}"
+    {% endif %}
+{% endif %}

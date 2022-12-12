@@ -1,0 +1,155 @@
+/*==================== FOOTER ====================*/
+.footer {
+	position: relative;
+	color: var(--color-white);
+	background-color: var(--color-default);
+
+	&__top {
+		padding: 41px 0 36px;
+	}
+
+	&__bottom {
+		position: relative;
+		padding: 15px 0 21px;
+		font-size: 12px;
+		border-top: 1px solid var(--color-white);
+
+		&-container {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+			gap: em(10, 12);
+
+			> * {
+				margin: 0;
+			}
+
+			.ArtBro {
+				position: absolute;
+				left: 50%;
+				top: 42%;
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+
+	&__row {
+		display: grid;
+		grid-template-columns: repeat(4, auto);
+		justify-content: space-between;
+		column-gap: 24px;
+	}
+
+	&__col {
+		min-width: 20%;
+
+		> * {
+			margin-bottom: 16px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&:first-child {
+			max-width: 330px;
+		}
+
+		&:last-child {
+			min-width: initial;
+		}
+	}
+
+	&__logo {
+		max-width: 270px;
+	}
+
+	&__nav {
+		padding: 0;
+
+		&-item {
+			list-style-type: none;
+		}
+
+		&-link {
+			color: inherit;
+
+			&:hover {
+				text-decoration: none;
+			}
+
+			&--title {
+				font-weight: 700;
+				text-transform: uppercase;
+			}
+		}
+
+		&--direction {
+			&_row {
+				display: flex;
+				flex-wrap: wrap;
+				row-gap: 10px;
+
+				> * {
+					margin-right: em(36, 16);
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+			}
+
+			&_col {
+				> * {
+					margin-bottom: em(14, 16);
+				}
+			}
+		}
+	}
+
+	.ArtBro {
+		color: var(--color-primary);
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	@include table {
+		.mobile-navbar ~ & {
+			margin-bottom: 58px;
+		}
+		&__top {
+			padding: 37px 0 28px;
+		}
+		
+		&__bottom {
+		    &-container {
+				.ArtBro {
+					position: static;
+					transform: none;
+				}
+			}
+		}
+
+		&__row {
+			grid-template-columns: repeat(2, auto);
+			row-gap: em(26, 14);
+		}
+
+		&__logo {
+			max-width: 232px;
+		}
+	}
+
+	@include mobile {
+		&__bottom {
+			padding: 8px 0 13px;
+		}
+
+		&__row {
+			grid-template-columns: repeat(1, auto);
+		}
+	}
+}

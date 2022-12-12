@@ -1,0 +1,348 @@
+{% extends "layouts/page.twig" %}
+
+{% block breadcrumbs %}
+	{% include "@/breadcrumbs.twig" with {
+		breadcrumbs: {
+			items: [{
+				href: "#",
+				text: "Главная"
+			}, {
+				href: "#",
+				text: "Каталог"
+			}, {
+				href: "#",
+				text: "Hywood"
+			}, {
+				href: "#",
+				text: "Floor Finder"
+			}]
+		}
+	} %}
+{% endblock %}
+
+{% block content %}
+	<div class="product">
+		<div class="container">
+			<!-- showcase -->
+			<div class="product__showcase">
+				<div class="product__showcase-row">
+					<!-- gallery product -->
+					<div class="product__gallery-wrap">
+						<div class="product__gallery gallery">
+							<!-- full imgage slider -->
+							<div class="gallery__slider-wrap slider">
+								<div class="gallery__slider swiper" data-slider-autoplay="5000">
+									<div class="swiper-wrapper" uk-lightbox="animation: slide">
+										<a class="gallery__slider-slide swiper-slide" href="docs/img/test/prod.jpg">
+											<img class="swiper-lazy" data-src="docs/img/test/prod.jpg" alt="">
+										</a>
+										<a class="gallery__slider-slide swiper-slide" href="docs/img/test/prod.jpg">
+											<img class="swiper-lazy" data-src="docs/img/test/prod.jpg" alt="">
+										</a>
+										<a class="gallery__slider-slide swiper-slide" href="docs/img/test/prod.jpg">
+											<img class="swiper-lazy" data-src="docs/img/test/prod.jpg" alt="">
+										</a>
+										<a class="gallery__slider-slide swiper-slide" href="docs/img/test/prod.jpg">
+											<img class="swiper-lazy" data-src="docs/img/test/prod.jpg" alt="">
+										</a>
+										<a class="gallery__slider-slide swiper-slide" href="docs/img/test/prod.jpg">
+											<img class="swiper-lazy" data-src="docs/img/test/prod.jpg" alt="">
+										</a>
+										<a class="gallery__slider-slide swiper-slide" href="docs/img/test/prod.jpg">
+											<img class="swiper-lazy" data-src="docs/img/test/prod.jpg" alt="">
+										</a>
+										<a class="gallery__slider-slide swiper-slide" href="docs/img/test/prod.jpg">
+											<img class="swiper-lazy" data-src="docs/img/test/prod.jpg" alt="">
+										</a>
+										<a class="gallery__slider-slide swiper-slide" href="docs/img/test/prod.jpg">
+											<img class="swiper-lazy" data-src="docs/img/test/prod.jpg" alt="">
+										</a>
+									</div>
+								</div>
+							</div>
+							<!-- thumbs slider -->
+							<div class="gallery__thumbs-wrap slider">
+								<div class="gallery__thumbs swiper" data-slider-autoplay="5000">
+									<div class="swiper-wrapper">
+										<div class="gallery__thumbs-item swiper-slide">
+											<img src="docs/img/test/prod.jpg" alt="">
+										</div>
+										<div class="gallery__thumbs-item swiper-slide">
+											<img src="docs/img/test/prod.jpg" alt="">
+										</div>
+										<div class="gallery__thumbs-item swiper-slide">
+											<img src="docs/img/test/prod.jpg" alt="">
+										</div>
+										<div class="gallery__thumbs-item swiper-slide">
+											<img src="docs/img/test/prod.jpg" alt="">
+										</div>
+										<div class="gallery__thumbs-item swiper-slide">
+											<img src="docs/img/test/prod.jpg" alt="">
+										</div>
+										<div class="gallery__thumbs-item swiper-slide">
+											<img src="docs/img/test/prod.jpg" alt="">
+										</div>
+										<div class="gallery__thumbs-item swiper-slide">
+											<img src="docs/img/test/prod.jpg" alt="">
+										</div>
+										<div class="gallery__thumbs-item swiper-slide">
+											<img src="docs/img/test/prod.jpg" alt="">
+										</div>
+									</div>
+								</div>
+								<!-- nav slider -->
+								<div class="gallery__nav slider__nav">
+									<button class="slider__nav-btn slider__nav-btn--prev btn btn--icon btn--bg_transparent" type="button" aria-label="Предыдущий слайдер">
+										<i class="btn__icon icon--orientation_left">
+											<svg aria-hidden="true">
+												<use xlink:href="assets/img/icons/ui/sprite.svg#angle"></use>
+											</svg>
+										</i>
+									</button>
+									<button class="slider__nav-btn slider__nav-btn--next btn btn--icon btn--bg_transparent" aria-label="Следующий слайдер">
+										<i class="btn__icon icon icon--orientation_right">
+											<svg aria-hidden="true">
+												<use xlink:href="assets/img/icons/ui/sprite.svg#angle"></use>
+											</svg>
+										</i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product__details">
+						<!-- shop card -->
+						<div class="product__shop shop-card h-100">
+							<div class="shop-card__articul">ARTICLE NO.: 1101280421</div>
+							<div class="shop-card__title">Z08b Oak Capitol Reef extra-wide plank</div>
+							<div class="shop-card__props">
+								<p>ter Hürne - Hywood</p>
+								<p>
+									Noblesse Collection - 2375 x 270 x 11 mm
+								</p>
+							</div>
+							<div class="shop-card__price">
+								<span class="shop-card__price-val">116 руб.</span> за м.кв.
+							</div>
+							<div class="shop-card__btns btns btns--filling_full">
+								<div class="btns__list">
+									<button class="btn btn--bg" type="button" aria-label="Покупайте у дилера">
+										<span class="btn__value">Покупайте у дилера</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- nav panel -->
+		<div class="nav-panel">
+			<div class="nav-panel__container container">
+				<div class="nav-panel__inner">
+					<a class="nav-panel__link" href="#info">Информация</a>
+					<a class="nav-panel__link" href="#har">Характеристики</a>
+					<a class="nav-panel__link" href="#documents">Документы</a>
+					<a class="nav-panel__link" href="#instrukcii">Аксессуары</a>
+				</div>
+			</div>
+		</div>
+		<!-- info -->
+		<div class="container">
+			<div class="product__info content">
+				<!-- section -->
+				<section id="info" class="product__info-section content">
+					<h4>Информация</h4>
+					<p>
+						Отличные свойства древесины всегда были эталоном для всей продукции дома ter Hürne — с момента основания компании более 60 лет назад и до сегодняшнего дня. Дерево остается нашим образцом для подражания в отношении умных, альтернативных материалов для естественного здорового образа жизни.
+					</p>
+					<div class="row-cols">
+						<img src="docs/img/test/real-word.jpg" alt="">
+						<img src="docs/img/test/real-word.jpg" alt="">
+						<img src="docs/img/test/real-word.jpg" alt="">
+						<img src="docs/img/test/real-word.jpg" alt="">
+					</div>
+				</section>
+				<!-- section -->
+				<section id="har" class="product__info-section content">
+					<h4>Характеристики</h4>
+					<div class="table-wrap">
+						<table>
+							<tbody>
+								<tr>
+									<td>Длина</td>
+									<td>770 мм</td>
+								</tr>
+								<tr>
+									<td>Длина</td>
+									<td>брус хвойных пород</td>
+								</tr>
+								<tr>
+									<td>Длина</td>
+									<td>770 мм</td>
+								</tr>
+								<tr>
+									<td>Длина</td>
+									<td>брус хвойных пород</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+				<!-- section -->
+				<section id="documents" class="product__info-section content">
+					<h4>Документы</h4>
+					<div class="docs" style="max-width: 770px;">
+						<div class="docs__list row-cols-4 row-cols-sm-2 row-cols-xs-1">
+							<a href="#" download class="docs__item">
+								<span class="docs__item-icon">
+									<svg height="58" aria-hidden="true">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#pdf"></use>
+									</svg>
+								</span>
+								<span class="docs__item-text">Каталог К-7 (сент2018).pdf</span>
+							</a>
+							<a href="#" download class="docs__item">
+								<span class="docs__item-icon">
+									<svg height="58" aria-hidden="true">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#pdf"></use>
+									</svg>
+								</span>
+								<span class="docs__item-text">Каталог К-7 (сент2018).pdf</span>
+							</a>
+							<a href="#" download class="docs__item">
+								<span class="docs__item-icon">
+									<svg height="58" aria-hidden="true">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#pdf"></use>
+									</svg>
+								</span>
+								<span class="docs__item-text">Далеко-далеко за словесными горами в стране гласных...</span>
+							</a>
+							<a href="#" download class="docs__item">
+								<span class="docs__item-icon">
+									<svg height="58" aria-hidden="true">
+										<use xlink:href="assets/img/icons/ui/sprite.svg#pdf"></use>
+									</svg>
+								</span>
+								<span class="docs__item-text">Каталог К-7 (сент2018).pdf</span>
+							</a>
+						</div>
+					</div>
+				</section>
+				<!-- section -->
+				<section id="instrukcii" class="product__info-section content">
+					<h4>Аксессуары</h4>
+					<!-- list products -->
+					<div class="products__list">
+						<!-- product -->
+						<a class="product-card" href="#">
+							<span class="product-card__img">
+								<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+							</span>
+							<span class="product-card__info">
+								<span class="product-card__articul">1101280101</span>
+								<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+								<span class="product-card__props">
+									<span>ter Hürne - Hywood</span>
+									<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+								</span>
+							</span>
+						</a>
+						<!-- product -->
+						<a class="product-card" href="#">
+							<span class="product-card__img">
+								<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+							</span>
+							<span class="product-card__info">
+								<span class="product-card__articul">1101280101</span>
+								<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+								<span class="product-card__props">
+									<span>ter Hürne - Hywood</span>
+									<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+								</span>
+							</span>
+						</a>
+						<!-- product -->
+						<a class="product-card" href="#">
+							<span class="product-card__img">
+								<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+							</span>
+							<span class="product-card__info">
+								<span class="product-card__articul">1101280101</span>
+								<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+								<span class="product-card__props">
+									<span>ter Hürne - Hywood</span>
+									<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+								</span>
+							</span>
+						</a>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<!-- section -->
+	<section class="section">
+		<div class="container">
+			<h2 class="section__title">Вам также может понравиться</h2>
+			<div class="products__list products__list--scroll-snap-touch">
+				<!-- product -->
+				<a class="product-card" href="#">
+					<span class="product-card__img">
+						<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+					</span>
+					<span class="product-card__info">
+						<span class="product-card__articul">1101280101</span>
+						<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+						<span class="product-card__props">
+							<span>ter Hürne - Hywood</span>
+							<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+						</span>
+					</span>
+				</a>
+				<!-- product -->
+				<a class="product-card" href="#">
+					<span class="product-card__img">
+						<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+					</span>
+					<span class="product-card__info">
+						<span class="product-card__articul">1101280101</span>
+						<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+						<span class="product-card__props">
+							<span>ter Hürne - Hywood</span>
+							<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+						</span>
+					</span>
+				</a>
+				<!-- product -->
+				<a class="product-card" href="#">
+					<span class="product-card__img">
+						<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+					</span>
+					<span class="product-card__info">
+						<span class="product-card__articul">1101280101</span>
+						<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+						<span class="product-card__props">
+							<span>ter Hürne - Hywood</span>
+							<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+						</span>
+					</span>
+				</a>
+				<!-- product -->
+				<a class="product-card" href="#">
+					<span class="product-card__img">
+						<img src="docs/img/test/product-card-prev.jpg" alt="Z08b Oak Capitol Reef extra-wide plank">
+					</span>
+					<span class="product-card__info">
+						<span class="product-card__articul">1101280101</span>
+						<span class="product-card__title">Z08b Oak Capitol Reef extra-wide plank</span>
+						<span class="product-card__props">
+							<span>ter Hürne - Hywood</span>
+							<span>Noblesse Collection - 2375 x 270 x 11 mm</span>
+						</span>
+					</span>
+				</a>
+			</div>
+		</div>
+	</section>
+{% endblock content %}
